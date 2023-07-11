@@ -4,13 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { RadioFormComponent } from './radio-form/radio-form.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RadioFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

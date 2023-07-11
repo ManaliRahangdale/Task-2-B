@@ -1,0 +1,42 @@
+<form [formGroup]="radioFormObj" (ngSubmit)="onSubmit()" class="form">
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="firstNameEle">First Name</label>
+      <input type="text" class="form-control" id="firstNameEle" placeholder="Enter first Name" formControlName="firstName"/>
+      <span
+        class="text-danger" *ngIf=" !radioFormObj.get('firstName').valid && radioFormObj.get('firstName').touched">First Name is required</span
+      >
+    </div>
+    <div class="form-group col">
+      <label for="lastNameEle">Last Name</label>
+      <input type="text" class="form-control" id="lastNameEle" placeholder="Enter last Name" formControlName="lastName"/>
+      <span
+        class="text-danger" *ngIf=" !radioFormObj.get('lastName').valid && radioFormObj.get('lastName').touched">Last Name is required</span
+      >
+    </div>
+  </div>
+  <label for="">How should we contact you?</label>
+    <div formGroupName="contactDetails" class="form-row">
+        <div class="col">
+          <div>
+            <input type="radio" formControlName="contactMethod" value="phone">
+            <label>Phone</label>
+        </div>
+        <div>
+          <input type="radio" formControlName="contactMethod" value="email">
+          <label> Email</label>
+      </div>
+    </div>
+    <div class="col">
+        <div *ngIf="radioFormObj.get('contactDetails.contactMethod').value ==='phone'">
+          <label for="phone">phone Number</label><br />
+          <input type="text" formControlName="phoneNo" />
+        </div>
+        <div *ngIf="radioFormObj.get('contactDetails.contactMethod').value ==='email'">
+          <label for="email">Email Address</label><br>
+          <input type="email" formControlName="emailId" />
+        </div>
+      </div>
+    </div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
